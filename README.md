@@ -1,2 +1,3 @@
-# vue-coach-finder
+# Vue Coach Finder
+
 Vue.js - Routing, Vuex, Components
