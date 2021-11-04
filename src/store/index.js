@@ -1,9 +1,17 @@
-import { createStore } from 'vuex';
+import { createLogger, createStore, } from 'vuex';
+import rootActions from './actions';
+import rootGetters from './getters';
+import { coachesModule } from './modules/coaches';
+import rootMutations from './mutations';
 
-export default createStore({
+export const store = createStore({
+  modules: {
+    coaches: coachesModule,
+  },
   state: {},
-  getters: {},
-  mutations: {},
-  actions: {},
-  modules: {},
+  getters: rootGetters,
+  mutations: rootMutations,
+  actions: rootActions,
+  plugins: [createLogger()],
 });
+
