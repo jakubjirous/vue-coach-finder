@@ -6,12 +6,12 @@
     <section>
       <base-card>
         <div class="controls">
-          <base-button>
+          <base-button mode="outline">
             Refresh
           </base-button>
           <base-button
             :to="coachesRegistrationLink"
-            is-link>
+            link>
             Register as Coach
           </base-button>
         </div>

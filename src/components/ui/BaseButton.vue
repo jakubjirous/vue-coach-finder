@@ -1,6 +1,6 @@
 <template>
   <button
-    v-if="!isLink"
+    v-if="!link"
     :class="mode">
     <slot></slot>
   </button>
@@ -23,7 +23,7 @@ export default defineComponent({
       required: false,
       default: null
     },
-    isLink: {
+    link: {
       type: Boolean,
       required: false,
       default: false

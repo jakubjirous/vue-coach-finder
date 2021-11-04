@@ -14,13 +14,13 @@
     <div class="actions">
       <base-button
         :to="coachContactLink"
-        is-link
+        link
         mode="outline">
         Contact
       </base-button>
       <base-button
         :to="coachDetailsLink"
-        is-link>
+        link>
         View Details
       </base-button>
     </div>
