@@ -29,11 +29,9 @@
 
 <script>
 import { defineComponent } from 'vue';
-import BaseButton from '../ui/BaseButton';
 
 export default defineComponent({
   name: 'CoachItem',
-  components: { BaseButton },
   props: {
     id: {
       type: String,

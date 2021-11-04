@@ -1,7 +1,7 @@
 <template>
   <fragment>
     <section>
-      Filter
+      <coach-filter @change-filter="setFilters" />
     </section>
     <section>
       <base-card>
@@ -35,24 +35,47 @@
 
 <script>
 import { defineComponent } from 'vue';
+import CoachFilter from '../../components/coaches/CoachFilter';
 import CoachItem from '../../components/coaches/CoachItem';
-import BaseButton from '../../components/ui/BaseButton';
 
 export default defineComponent({
   name: 'CoachesList',
   components: {
-    BaseButton,
+    CoachFilter,
     CoachItem
+  },
+  data() {
+    return {
+      activeFilters: {
+        frontend: true,
+        backend: true,
+        career: true
+      }
+    };
   },
   computed: {
     filteredCoaches() {
-      return this.$store.getters['coaches/coaches'];
+      const coaches = this.$store.getters['coaches/coaches'];
+      return coaches.filter(coach => {
+        if (this.activeFilters.frontend && coach.areas.includes('frontend')) {
+          return true;
+        }
+        if (this.activeFilters.backend && coach.areas.includes('backend')) {
+          return true;
+        }
+        return this.activeFilters.career && coach.areas.includes('career');
+      });
     },
     hasCoaches() {
       return this.$store.getters['coaches/hasCoaches'];
     },
     coachesRegistrationLink() {
       return { name: 'CoachesRegistration' };
+    }
+  },
+  methods: {
+    setFilters(updatedFilters) {
+      this.activeFilters = updatedFilters;
     }
   }
 });
