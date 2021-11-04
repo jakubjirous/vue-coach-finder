@@ -30,5 +30,14 @@ module.exports = {
     'vue/script-indent': ['error', 2],
     'vue/multiline-html-element-content-newline': 0,
     quotes: ['error', 'single', { avoidEscape: false }],
+    'vue/html-self-closing': ['error', {
+      'html': {
+        'void': 'never',
+        'normal': 'never',
+        'component': 'always'
+      },
+      'svg': 'always',
+      'math': 'always'
+    }]
   },
 };

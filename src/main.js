@@ -1,6 +1,17 @@
 import { createApp } from 'vue';
 import App from './App.vue';
+import BaseBadge from './components/ui/BaseBadge';
+import BaseButton from './components/ui/BaseButton';
+import BaseCard from './components/ui/BaseCard';
 import router from './router';
 import { store } from './store';
 
-createApp(App).use(store).use(router).mount('#app');
+const app = createApp(App);
+
+app
+  .use(store)
+  .use(router)
+  .component('base-card', BaseCard)
+  .component('base-button', BaseButton)
+  .component('base-badge', BaseBadge)
+  .mount('#app');
