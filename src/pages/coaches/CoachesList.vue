@@ -46,24 +46,20 @@ export default defineComponent({
   },
   data() {
     return {
-      activeFilters: {
-        frontend: true,
-        backend: true,
-        career: true
-      }
+      activeFilters: ['frontend', 'backend', 'career'],
     };
   },
   computed: {
     filteredCoaches() {
       const coaches = this.$store.getters['coaches/coaches'];
       return coaches.filter(coach => {
-        if (this.activeFilters.frontend && coach.areas.includes('frontend')) {
+        if (this.activeFilters.includes('frontend') && coach.areas.includes('frontend')) {
           return true;
         }
-        if (this.activeFilters.backend && coach.areas.includes('backend')) {
+        if (this.activeFilters.includes('backend') && coach.areas.includes('backend')) {
           return true;
         }
-        return this.activeFilters.career && coach.areas.includes('career');
+        return this.activeFilters.includes('career') && coach.areas.includes('career');
       });
     },
     hasCoaches() {

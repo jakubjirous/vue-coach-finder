@@ -1,11 +1,21 @@
 <template>
-  <h1>Coaches Registration</h1>
+  <base-card>
+    <section>
+      <h2>Register as a coach now!</h2>
+    </section>
+
+    <coach-form />
+  </base-card>
 </template>
 
 <script>
 import { defineComponent } from 'vue';
+import CoachForm from '../../components/coaches/CoachForm';
 
 export default defineComponent({
   name: 'CoachesRegistration',
+  components: {
+    CoachForm
+  }
 });
 </script>
