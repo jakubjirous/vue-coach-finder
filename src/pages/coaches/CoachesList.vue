@@ -10,6 +10,7 @@
             Refresh
           </base-button>
           <base-button
+            v-if="!isCoach"
             :to="coachesRegistrationLink"
             link>
             Register as Coach
@@ -66,7 +67,10 @@ export default defineComponent({
       return this.$store.getters['coaches/hasCoaches'];
     },
     coachesRegistrationLink() {
-      return { name: 'CoachesRegistration' };
+      return {name: 'CoachesRegistration'};
+    },
+    isCoach() {
+      return this.$store.getters['coaches/isCoach'];
     }
   },
   methods: {

@@ -8,7 +8,11 @@ export const store = createStore({
   modules: {
     coaches: coachesModule,
   },
-  state: {},
+  state() {
+    return {
+      userId: 'c3'
+    };
+  },
   getters: rootGetters,
   mutations: rootMutations,
   actions: rootActions,

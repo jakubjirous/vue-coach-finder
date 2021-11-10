@@ -10,7 +10,8 @@
       :disabled="disabled"
       :name="name"
       :value="value"
-      type="checkbox">
+      type="checkbox"
+      @blur="onBlur">
     <span class="checkmark"></span>
   </label>
 </template>
@@ -30,12 +31,17 @@ export default defineComponent({
     },
     name: {
       type: String,
+      required: true
     },
     modelValue: {
       type: [Boolean, String, Number, Array],
+      required: false,
+      default: null
     },
     value: {
       type: [String, Number, Array],
+      required: false,
+      default: null
     },
     checked: {
       type: Boolean,
@@ -47,8 +53,8 @@ export default defineComponent({
       required: false
     },
   },
-  emits: ['update:modelValue'],
-  setup: (props, { emit }) => {
+  emits: ['update:modelValue', 'blur'],
+  setup: (props, {emit}) => {
     const computedValue = computed({
       get() {
         return props.modelValue;
@@ -57,9 +63,12 @@ export default defineComponent({
         emit('update:modelValue', value);
       },
     });
-    return { computedValue };
+    return {computedValue};
   },
   methods: {
+    onBlur($event) {
+      this.$emit('blur', $event.target.value);
+    }
     // onChange(event) {
     //   this.$emit('change', {
     //     id: event.target.id,
