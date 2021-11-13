@@ -6,7 +6,9 @@
     <section>
       <base-card>
         <div class="controls">
-          <base-button mode="outline">
+          <base-button
+            mode="outline"
+            @click="loadCoaches">
             Refresh
           </base-button>
           <base-button
@@ -19,8 +21,8 @@
         <ul v-if="hasCoaches">
           <coach-item
             v-for="coach in filteredCoaches"
-            :id="coach.id"
-            :key="coach.id"
+            :key="coach.coachId"
+            :coach-id="coach.coachId"
             :areas="coach.areas"
             :first-name="coach.firstName"
             :last-name="coach.lastName"
@@ -73,14 +75,19 @@ export default defineComponent({
       return this.$store.getters['coaches/isCoach'];
     }
   },
+  created() {
+    this.loadCoaches();
+  },
   methods: {
     setFilters(updatedFilters) {
       this.activeFilters = updatedFilters;
+    },
+    loadCoaches() {
+      this.$store.dispatch('coaches/loadCoaches');
     }
   }
 });
 </script>
-
 
 <style lang="scss" scoped>
 ul {

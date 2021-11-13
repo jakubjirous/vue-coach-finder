@@ -75,10 +75,8 @@ export default defineComponent({
     },
   },
   created() {
-    console.log(this.coachId);
-
     // fetch coach from Vuex
-    this.selectedCoach = this.$store.getters['coaches/coaches'].find(coach => coach.id === this.coachId);
+    this.selectedCoach = this.$store.getters['coaches/coaches'].find(coach => coach.coachId === this.coachId);
   }
 });
 </script>

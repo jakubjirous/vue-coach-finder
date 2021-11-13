@@ -33,7 +33,7 @@ import { defineComponent } from 'vue';
 export default defineComponent({
   name: 'CoachItem',
   props: {
-    id: {
+    coachId: {
       type: String,
       required: true
     },
@@ -62,7 +62,7 @@ export default defineComponent({
       return {
         name: 'CoachContact',
         params: {
-          coachId: this.id
+          coachId: this.coachId
         }
       };
     },
@@ -70,13 +70,12 @@ export default defineComponent({
       return {
         name: 'CoachDetail',
         params: {
-          coachId: this.id
+          coachId: this.coachId
         }
       };
     }
   }
 });
-
 </script>
 
 <style lang="scss" scoped>
