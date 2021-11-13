@@ -35,17 +35,19 @@ export default {
     }
 
     const coaches = [];
-    for (const [coachId, coach] of Object.entries(responseData)) {
-      // eslint-disable-next-line no-prototype-builtins
-      if (responseData.hasOwnProperty(coachId)) {
-        coaches.push({
-          coachId: coachId,
-          firstName: coach.firstName,
-          lastName: coach.lastName,
-          description: coach.description,
-          hourlyRate: coach.hourlyRate,
-          areas: coach.areas,
-        });
+    if (responseData) {
+      for (const [coachId, coach] of Object.entries(responseData)) {
+        // eslint-disable-next-line no-prototype-builtins
+        if (responseData.hasOwnProperty(coachId)) {
+          coaches.push({
+            coachId: coachId,
+            firstName: coach.firstName,
+            lastName: coach.lastName,
+            description: coach.description,
+            hourlyRate: coach.hourlyRate,
+            areas: coach.areas,
+          });
+        }
       }
     }
     context.commit('setCoaches', coaches);
