@@ -6,6 +6,7 @@ export const requestsModule = {
   namespaced: true,
   state() {
     return {
+      lastFetch: null,
       requests: []
     };
   },

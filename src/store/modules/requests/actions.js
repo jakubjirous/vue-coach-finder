@@ -21,6 +21,10 @@ export default {
     context.commit('addRequest', newRequest);
   },
   async fetchRequests(context) {
+    if (!context.getters.shouldUpdate) {
+      return;
+    }
+
     const coachId = context.rootGetters.userId;
     const response = await fetch(`${process.env.VUE_APP_DB}/requests/${coachId}.json`, {
       method: 'GET',
@@ -47,5 +51,6 @@ export default {
       }
     }
     context.commit('setRequests', requests);
+    context.commit('setFetchTimeStamp');
   }
 };

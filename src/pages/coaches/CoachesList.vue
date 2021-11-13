@@ -14,7 +14,7 @@
         <div class="controls">
           <base-button
             mode="outline"
-            @click="loadCoaches">
+            @click="loadCoaches(true)">
             Refresh
           </base-button>
           <base-button
@@ -93,10 +93,12 @@ export default defineComponent({
     setFilters(updatedFilters) {
       this.activeFilters = updatedFilters;
     },
-    async loadCoaches() {
+    async loadCoaches(refresh = false) {
       this.isLoading = true;
       try {
-        await this.$store.dispatch('coaches/loadCoaches');
+        await this.$store.dispatch('coaches/loadCoaches', {
+          forceRefresh: refresh
+        });
       } catch (error) {
         this.error = error.message || 'Something went wrong!';
       }

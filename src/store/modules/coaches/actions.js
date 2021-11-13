@@ -24,7 +24,11 @@ export default {
       id: userId
     });
   },
-  async loadCoaches(context) {
+  async loadCoaches(context, payload) {
+    if (!payload.forceRefresh && !context.getters.shouldUpdate) {
+      return;
+    }
+
     const response = await fetch(`${process.env.VUE_APP_DB}/coaches.json`, {
       method: 'GET',
     });
@@ -51,5 +55,6 @@ export default {
       }
     }
     context.commit('setCoaches', coaches);
+    context.commit('setFetchTimeStamp');
   }
 };
