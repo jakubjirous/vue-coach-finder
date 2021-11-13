@@ -4,6 +4,7 @@ import BaseBadge from './components/ui/BaseBadge';
 import BaseButton from './components/ui/BaseButton';
 import BaseCard from './components/ui/BaseCard';
 import BaseCheckbox from './components/ui/BaseCheckbox';
+import BaseSpinner from './components/ui/BaseSpinner';
 import router from './router';
 import { store } from './store';
 
@@ -16,4 +17,5 @@ app
   .component('base-button', BaseButton)
   .component('base-badge', BaseBadge)
   .component('base-checkbox', BaseCheckbox)
+  .component('base-spinner', BaseSpinner)
   .mount('#app');
