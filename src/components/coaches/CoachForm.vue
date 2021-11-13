@@ -60,6 +60,7 @@
         <base-checkbox
           id="frontend"
           v-model="areas.val"
+          name="areas"
           label="Frontend Development"
           value="frontend"
           @blur="clearValidity('areas')" />
@@ -68,6 +69,7 @@
         <base-checkbox
           id="backend"
           v-model="areas.val"
+          name="areas"
           label="Backend Development"
           value="backend"
           @blur="clearValidity('areas')" />
@@ -76,6 +78,7 @@
         <base-checkbox
           id="career"
           v-model="areas.val"
+          name="areas"
           label="Career Advisory"
           value="career"
           @blur="clearValidity('areas')" />

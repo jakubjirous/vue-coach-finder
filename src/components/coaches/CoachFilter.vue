@@ -5,6 +5,7 @@
       <base-checkbox
         id="frontend"
         v-model="filters"
+        name="frontend"
         checked
         label="Frontend"
         value="frontend" />
@@ -13,6 +14,7 @@
       <base-checkbox
         id="backend"
         v-model="filters"
+        name="backend"
         checked
         label="Backend"
         value="backend" />
@@ -21,6 +23,7 @@
       <base-checkbox
         id="career"
         v-model="filters"
+        name="career"
         checked
         label="Career"
         value="career" />

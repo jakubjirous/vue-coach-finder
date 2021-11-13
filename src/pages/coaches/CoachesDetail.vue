@@ -1,5 +1,5 @@
 <template>
-  <fragment>
+  <div>
     <section>
       <base-card>
         <h2>{{ fullName }}</h2>
@@ -33,7 +33,7 @@
         </p>
       </base-card>
     </section>
-  </fragment>
+  </div>
 </template>
 
 <script>

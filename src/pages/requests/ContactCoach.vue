@@ -1,5 +1,5 @@
 <template>
-  <fragment>
+  <div>
     <base-dialog
       :show="!!error"
       title="An error occurred!"
@@ -37,7 +37,7 @@
         </base-button>
       </div>
     </form>
-  </fragment>
+  </div>
 </template>
 
 <script>
