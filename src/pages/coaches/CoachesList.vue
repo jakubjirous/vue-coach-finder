@@ -27,7 +27,7 @@
             v-if="isLoggedIn && !isCoach && !isLoading"
             :to="coachesRegistrationLink"
             link>
-            Register as Coach
+            Login to Register as Coach
           </base-button>
         </div>
         <div v-if="isLoading">
@@ -86,7 +86,12 @@ export default defineComponent({
       return !this.isLoading && this.$store.getters['coaches/hasCoaches'];
     },
     coachesRegistrationLink() {
-      return {name: 'CoachesRegistration'};
+      return {
+        name: 'CoachesRegistration',
+        query: {
+          redirect: 'register'
+        }
+      };
     },
     authLink() {
       return {name: 'UserAuth'};

@@ -85,6 +85,9 @@ export default defineComponent({
           password: this.password,
           isLoginMode: this.isLoginMode
         });
+
+        const redirectUrl = `/${(this.$route.query.redirect) || 'coaches'}`;
+        this.$router.replace(redirectUrl);
       } catch (error) {
         this.error = error.message || 'Failed to authenticate, try again later.';
       }
