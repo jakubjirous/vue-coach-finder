@@ -1,14 +1,14 @@
-import { createApp } from 'vue';
+import { createApp, defineAsyncComponent } from 'vue';
 import App from './App.vue';
 import router from './router';
 import { store } from './store';
 
-const BaseCard = () => import('./components/ui/BaseCard');
-const BaseButton = () => import('./components/ui/BaseButton');
-const BaseBadge = () => import('./components/ui/BaseBadge');
-const BaseCheckbox = () => import('./components/ui/BaseCheckbox');
-const BaseDialog = () => import('./components/ui/BaseDialog');
-const BaseSpinner = () => import('./components/ui/BaseSpinner');
+const BaseCard = defineAsyncComponent(() => import('./components/ui/BaseCard'));
+const BaseButton = defineAsyncComponent(() => import('./components/ui/BaseButton'));
+const BaseBadge = defineAsyncComponent(() => import('./components/ui/BaseBadge'));
+const BaseCheckbox = defineAsyncComponent(() => import('./components/ui/BaseCheckbox'));
+const BaseDialog = defineAsyncComponent(() => import('./components/ui/BaseDialog'));
+const BaseSpinner = defineAsyncComponent(() => import('./components/ui/BaseSpinner'));
 
 const app = createApp(App);
 
