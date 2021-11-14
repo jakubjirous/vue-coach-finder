@@ -18,7 +18,13 @@
             Refresh
           </base-button>
           <base-button
-            v-if="!isCoach && !isLoading"
+            v-if="!isLoggedIn"
+            :to="authLink"
+            link>
+            Login
+          </base-button>
+          <base-button
+            v-if="isLoggedIn && !isCoach && !isLoading"
             :to="coachesRegistrationLink"
             link>
             Register as Coach
@@ -82,8 +88,14 @@ export default defineComponent({
     coachesRegistrationLink() {
       return {name: 'CoachesRegistration'};
     },
+    authLink() {
+      return {name: 'UserAuth'};
+    },
     isCoach() {
       return this.$store.getters['coaches/isCoach'];
+    },
+    isLoggedIn() {
+      return this.$store.getters['isAuthenticated'];
     }
   },
   created() {

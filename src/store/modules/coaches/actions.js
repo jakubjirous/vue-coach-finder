@@ -1,6 +1,7 @@
 export default {
   async registerCoach(context, data) {
     const userId = context.rootGetters.userId;
+    const token = context.rootGetters.token;
     const coachData = {
       firstName: data.firstName,
       lastName: data.lastName,
@@ -9,7 +10,7 @@ export default {
       areas: data.areas,
     };
 
-    const response = await fetch(`${process.env.VUE_APP_DB}/coaches/${userId}.json`, {
+    const response = await fetch(`${process.env.VUE_APP_DB}/coaches/${userId}.json?auth=${token}`, {
       method: 'PUT',
       body: JSON.stringify(coachData),
     });

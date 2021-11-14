@@ -1,4 +1,5 @@
 import { createRouter, createWebHistory } from 'vue-router';
+import UserAuth from '../pages/auth/UserAuth';
 import CoachesDetail from '../pages/coaches/CoachesDetail';
 import CoachesList from '../pages/coaches/CoachesList';
 import CoachesRegistration from '../pages/coaches/CoachesRegistration';
@@ -38,6 +39,11 @@ const routes = [
     path: '/requests',
     name: 'RequestsReceive',
     component: RequestsReceive,
+  },
+  {
+    path: '/auth',
+    name: 'UserAuth',
+    component: UserAuth,
   },
   {
     path: '/:notFound(.*)',

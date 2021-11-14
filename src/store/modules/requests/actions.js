@@ -24,9 +24,9 @@ export default {
     if (!context.getters.shouldUpdate) {
       return;
     }
-
     const coachId = context.rootGetters.userId;
-    const response = await fetch(`${process.env.VUE_APP_DB}/requests/${coachId}.json`, {
+    const token = context.rootGetters.token;
+    const response = await fetch(`${process.env.VUE_APP_DB}/requests/${coachId}.json?auth=${token}`, {
       method: 'GET',
     });
 

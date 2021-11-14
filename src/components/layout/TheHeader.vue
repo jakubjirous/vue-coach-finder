@@ -2,19 +2,24 @@
   <header>
     <nav>
       <h1>
-        <router-link :to="{ name: 'CoachesList' }">
+        <router-link :to="coachesLink">
           Coach Finder
         </router-link>
       </h1>
       <ul>
         <li>
-          <router-link :to="{ name: 'CoachesList' }">
+          <router-link :to="coachesLink">
             All coaches
           </router-link>
         </li>
-        <li>
-          <router-link :to="{ name: 'RequestsReceive' }">
+        <li v-if="isLoggedIn">
+          <router-link :to="requestsLink">
             Requests
+          </router-link>
+        </li>
+        <li v-else>
+          <router-link :to="loginLink">
+            Login
           </router-link>
         </li>
       </ul>
@@ -27,6 +32,20 @@ import { defineComponent } from 'vue';
 
 export default defineComponent({
   name: 'TheHeader',
+  computed: {
+    coachesLink() {
+      return {name: 'CoachesList'};
+    },
+    requestsLink() {
+      return {name: 'RequestsReceive'};
+    },
+    loginLink() {
+      return {name: 'UserAuth'};
+    },
+    isLoggedIn() {
+      return this.$store.getters['isAuthenticated'];
+    }
+  }
 });
 </script>
 
