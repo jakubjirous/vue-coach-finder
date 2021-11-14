@@ -1,14 +1,13 @@
 import { createRouter, createWebHistory } from 'vue-router';
-import { defineAsyncComponent } from 'vue';
 import { store } from '../store';
 
-const UserAuth = defineAsyncComponent(() => import('../pages/auth/UserAuth'));
-const CoachDetail = defineAsyncComponent(() => import('../pages/coaches/CoachDetail'));
-const CoachesList = defineAsyncComponent(() => import('../pages/coaches/CoachesList'));
-const CoachRegistration = defineAsyncComponent(() => import('../pages/coaches/CoachesList'));
-const NotFound = defineAsyncComponent(() => import('../pages/NotFound'));
-const ContactCoach = defineAsyncComponent(() => import('../pages/requests/ContactCoach'));
-const RequestsReceive = defineAsyncComponent(() => import('../pages/requests/RequestsReceive'));
+const UserAuth = () => import('../pages/auth/UserAuth');
+const CoachDetail = () => import('../pages/coaches/CoachDetail');
+const CoachesList = () => import('../pages/coaches/CoachesList');
+const CoachRegistration = () => import('../pages/coaches/CoachesList');
+const NotFound = () => import('../pages/NotFound');
+const ContactCoach = () => import('../pages/requests/ContactCoach');
+const RequestsReceive = () => import('../pages/requests/RequestsReceive');
 
 const routes = [
   {
