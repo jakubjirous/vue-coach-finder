@@ -4,7 +4,7 @@ import { store } from '../store';
 const UserAuth = () => import('../pages/auth/UserAuth');
 const CoachDetail = () => import('../pages/coaches/CoachDetail');
 const CoachesList = () => import('../pages/coaches/CoachesList');
-const CoachRegistration = () => import('../pages/coaches/CoachesList');
+const CoachRegistration = () => import('../pages/coaches/CoachRegistration');
 const NotFound = () => import('../pages/NotFound');
 const ContactCoach = () => import('../pages/requests/ContactCoach');
 const RequestsReceive = () => import('../pages/requests/RequestsReceive');
