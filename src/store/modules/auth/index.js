@@ -7,7 +7,7 @@ export const authModule = {
     return {
       token: null,
       userId: null,
-      tokenExpiration: null
+      didAutoLogout: false
     };
   },
   getters: authGetters,

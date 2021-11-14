@@ -20,6 +20,21 @@ export default defineComponent({
   components: {
     TheHeader,
   },
+  computed: {
+    didAutoLogout() {
+      return this.$store.getters.didAutoLogout;
+    }
+  },
+  watch: {
+    didAutoLogout(currentValue, previousValue) {
+      if (currentValue && currentValue !== previousValue) {
+        this.$router.replace({name: 'CoachesList'});
+      }
+    }
+  },
+  created() {
+    this.$store.dispatch('tryAutoLogin');
+  }
 });
 </script>
 
