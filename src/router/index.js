@@ -1,12 +1,14 @@
 import { createRouter, createWebHistory } from 'vue-router';
-import UserAuth from '../pages/auth/UserAuth';
-import CoachesDetail from '../pages/coaches/CoachesDetail';
-import CoachesList from '../pages/coaches/CoachesList';
-import CoachesRegistration from '../pages/coaches/CoachesRegistration';
-import NotFound from '../pages/NotFound';
-import ContactCoach from '../pages/requests/ContactCoach';
-import RequestsReceive from '../pages/requests/RequestsReceive';
+import { defineAsyncComponent } from 'vue';
 import { store } from '../store';
+
+const UserAuth = defineAsyncComponent(() => import('../pages/auth/UserAuth'));
+const CoachDetail = defineAsyncComponent(() => import('../pages/coaches/CoachDetail'));
+const CoachesList = defineAsyncComponent(() => import('../pages/coaches/CoachesList'));
+const CoachRegistration = defineAsyncComponent(() => import('../pages/coaches/CoachesList'));
+const NotFound = defineAsyncComponent(() => import('../pages/NotFound'));
+const ContactCoach = defineAsyncComponent(() => import('../pages/requests/ContactCoach'));
+const RequestsReceive = defineAsyncComponent(() => import('../pages/requests/RequestsReceive'));
 
 const routes = [
   {
@@ -22,7 +24,7 @@ const routes = [
     path: '/coaches/:coachId',
     name: 'CoachDetail',
     props: true,
-    component: CoachesDetail,
+    component: CoachDetail,
     children: [
       {
         path: 'contact',
@@ -33,8 +35,8 @@ const routes = [
   },
   {
     path: '/register',
-    name: 'CoachesRegistration',
-    component: CoachesRegistration,
+    name: 'CoachRegistration',
+    component: CoachRegistration,
     meta: {
       requiresAuth: true,
     },

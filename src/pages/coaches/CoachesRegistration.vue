@@ -12,7 +12,7 @@ import { defineComponent } from 'vue';
 import CoachForm from '../../components/coaches/CoachForm';
 
 export default defineComponent({
-  name: 'CoachesRegistration',
+  name: 'CoachRegistration',
   components: {
     CoachForm
   },

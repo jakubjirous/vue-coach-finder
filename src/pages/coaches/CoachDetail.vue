@@ -40,7 +40,7 @@
 import { defineComponent } from 'vue';
 
 export default defineComponent({
-  name: 'CoachesDetail',
+  name: 'CoachDetail',
   props: {
     coachId: {
       type: String,
